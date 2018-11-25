@@ -6,10 +6,11 @@ class GildedRose
 
   def update_quality()
     @items.each do |item|
+      loss_multiplier = item.name == "Conjured" ? 2 : 1
       if item.name != "Aged Brie" and item.name != "Backstage passes to a TAFKAL80ETC concert"
         if item.quality > 0
           if item.name != "Sulfuras, Hand of Ragnaros"
-            item.quality = item.quality - 1
+            item.quality = item.quality - 1 * loss_multiplier
           end
         end
       else
@@ -37,7 +38,7 @@ class GildedRose
           if item.name != "Backstage passes to a TAFKAL80ETC concert"
             if item.quality > 0
               if item.name != "Sulfuras, Hand of Ragnaros"
-                item.quality = item.quality - 1
+                item.quality = item.quality - 1 * loss_multiplier
               end
             end
           else
